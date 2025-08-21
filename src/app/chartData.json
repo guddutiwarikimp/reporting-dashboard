@@ -1,0 +1,67 @@
+{
+  "basicLine": {
+    "title": { "text": "Basic Line Chart" },
+    "tooltip": {},
+    "xAxis": { "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
+    "yAxis": {},
+    "series": [
+      { "name": "Sales", "type": "line", "data": [150, 230, 224, 218, 135, 147, 260] }
+    ]
+  },
+  "basicBar": {
+    "title": { "text": "Basic Bar Chart" },
+    "tooltip": {},
+    "xAxis": { "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
+    "yAxis": {},
+    "series": [
+      { "name": "Sales", "type": "bar", "data": [120, 200, 150, 80, 70, 110, 130] }
+    ]
+  },
+  "stackedLine": {
+    "title": { "text": "Stacked Line Chart" },
+    "tooltip": { "trigger": "axis" },
+    "legend": { "data": ["Email", "Union Ads", "Video Ads"] },
+    "xAxis": { "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
+    "yAxis": { "type": "value" },
+    "series": [
+      { "name": "Email", "type": "line", "stack": "Total", "data": [120, 132, 101, 134, 90, 230, 210] },
+      { "name": "Union Ads", "type": "line", "stack": "Total", "data": [220, 182, 191, 234, 290, 330, 310] },
+      { "name": "Video Ads", "type": "line", "stack": "Total", "data": [150, 232, 201, 154, 190, 330, 410] }
+    ]
+  },
+  "stackedBar": {
+    "title": { "text": "Stacked Bar Chart" },
+    "tooltip": { "trigger": "axis" },
+    "legend": { "data": ["Direct", "Mail Ad", "Affiliate Ad"] },
+    "xAxis": { "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
+    "yAxis": { "type": "value" },
+    "series": [
+      { "name": "Direct", "type": "bar", "stack": "Ad", "data": [320, 332, 301, 334, 390, 330, 320] },
+      { "name": "Mail Ad", "type": "bar", "stack": "Ad", "data": [120, 132, 101, 134, 90, 230, 210] },
+      { "name": "Affiliate Ad", "type": "bar", "stack": "Ad", "data": [220, 182, 191, 234, 290, 330, 310] }
+    ]
+  },
+  "stackedArea": {
+    "title": { "text": "Stacked Area Chart" },
+    "tooltip": { "trigger": "axis" },
+    "legend": { "data": ["Email", "Union Ads", "Video Ads"] },
+    "xAxis": { "type": "category", "boundaryGap": false, "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
+    "yAxis": { "type": "value" },
+    "series": [
+      { "name": "Email", "type": "line", "stack": "Total", "areaStyle": {}, "data": [120, 132, 101, 134, 90, 230, 210] },
+      { "name": "Union Ads", "type": "line", "stack": "Total", "areaStyle": {}, "data": [220, 182, 191, 234, 290, 330, 310] },
+      { "name": "Video Ads", "type": "line", "stack": "Total", "areaStyle": {}, "data": [150, 232, 201, 154, 190, 330, 410] }
+    ]
+  },
+  "mixedLineBar": {
+    "title": { "text": "Mixed Line and Bar Chart" },
+    "tooltip": { "trigger": "axis" },
+    "legend": { "data": ["Bar", "Line"] },
+    "xAxis": { "type": "category", "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
+    "yAxis": { "type": "value" },
+    "series": [
+      { "name": "Bar", "type": "bar", "data": [320, 332, 301, 334, 390, 330, 320] },
+      { "name": "Line", "type": "line", "data": [120, 132, 101, 134, 90, 230, 210] }
+    ]
+  }
+}

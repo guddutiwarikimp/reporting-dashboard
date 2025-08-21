@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark .echarts-for-react, .dark .echarts-container {
+  background: #18181b !important;
+  color: #ededed !important;
+}
+
+.echarts-container {
+  background: #fff !important;
+  color: #171717 !important;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+  padding: 1rem;
+}
+
+.chart-btn {
+  margin: 0.25rem 0.5rem 0.25rem 0;
+}
+
+/* Custom table styling */
+.custom-table .ant-table-thead > tr > th {
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+  font-weight: 600;
+  color: #475569;
+}
+
+.dark .custom-table .ant-table-thead > tr > th {
+  background: #1e293b;
+  border-bottom: 2px solid #334155;
+  color: #cbd5e1;
+}
+
+.custom-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 12px 16px;
+}
+
+.dark .custom-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #334155;
+}
+
+.custom-table .ant-table-tbody > tr:hover > td {
+  background: #f8fafc;
+}
+
+.dark .custom-table .ant-table-tbody > tr:hover > td {
+  background: #1e293b;
+}
+
+/* Agent Table specific styling */
+.agent-table .ant-table-thead > tr > th {
+  background: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  text-align: left !important;
+}
+
+.dark .agent-table .ant-table-thead > tr > th {
+  background: #1f2937 !important;
+  border-bottom: 1px solid #374151 !important;
+  color: #d1d5db !important;
+}
+
+.agent-table .ant-table-tbody > tr > td {
+  background: #ffffff !important;
+  border-bottom: 1px solid #f3f4f6 !important;
+  text-align: left !important;
+}
+
+.dark .agent-table .ant-table-tbody > tr > td {
+  background: #111827 !important;
+  border-bottom: 1px solid #374151 !important;
+}
+
+.agent-table .ant-table-tbody > tr:hover > td {
+  background: #f9fafb !important;
+}
+
+.dark .agent-table .ant-table-tbody > tr:hover > td {
+  background: #1f2937 !important;
+}
+
+.agent-table .ant-table-thead > tr > th:first-child,
+.agent-table .ant-table-tbody > tr > td:first-child {
+  padding-left: 24px !important;
+}
+
+.agent-table .ant-table-thead > tr > th:last-child,
+.agent-table .ant-table-tbody > tr > td:last-child {
+  padding-right: 24px !important;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
