@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { AGENT_ACTIVITY_QUERIES } from "@/constants/reporting";
+import { LEAD_SOURCE_QUERIES } from "@/constants/leadSources";
 
 export const useChartState = (selectedQuery: string) => {
   const [timePeriod, setTimePeriod] = useState("monthly");
@@ -7,6 +8,48 @@ export const useChartState = (selectedQuery: string) => {
   
   // Get default metrics based on selected query
   const defaultMetrics = useMemo(() => {
+    // Check if this is a lead source query
+    if (LEAD_SOURCE_QUERIES.includes(selectedQuery as any)) {
+      switch (selectedQuery) {
+        case "Total lead count and total activity by source":
+          return {
+            selectedMetric: "New Leads",
+            selectedSecondMetric: "Nothing"
+          };
+        case "How many leads have we not acted on by source":
+          return {
+            selectedMetric: "New Leads",
+            selectedSecondMetric: "Nothing"
+          };
+        case "How quickly we follow up on leads per source":
+          return {
+            selectedMetric: "Calls",
+            selectedSecondMetric: "Nothing"
+          };
+        case "How many times we try to contact each lead per source":
+          return {
+            selectedMetric: "Calls",
+            selectedSecondMetric: "Nothing"
+          };
+        case "What source has the most lead responses":
+          return {
+            selectedMetric: "Calls",
+            selectedSecondMetric: "Nothing"
+          };
+        case "Which source has the most closed deals":
+          return {
+            selectedMetric: "New Leads",
+            selectedSecondMetric: "Nothing"
+          };
+        default:
+          return {
+            selectedMetric: "New Leads",
+            selectedSecondMetric: "Nothing"
+          };
+      }
+    }
+    
+    // Agent activity queries
     switch (selectedQuery) {
       case "what team member is getting the most leads to respond":
         return {

@@ -5,8 +5,6 @@ import { Dropdown, Button, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import {
-  AGENT_ACTIVITY_METRICS,
-  AGENT_ACTIVITY_SECOND_METRICS,
   TIME_PERIODS,
   TIME_PERIOD_LABELS,
   COMPARISON_PERIOD_LABELS,
@@ -17,6 +15,8 @@ interface ChartControlsProps {
   selectedSecondMetric: string;
   timePeriod: string;
   compareToPrevious: boolean;
+  metrics: ReadonlyArray<{ readonly name: string; readonly tooltip: string }>;
+  secondMetrics: ReadonlyArray<{ readonly name: string; readonly tooltip: string }>;
   onMetricChange: (metric: string) => void;
   onSecondMetricChange: (metric: string) => void;
   onTimePeriodChange: (period: string) => void;
@@ -28,6 +28,8 @@ export default function ChartControls({
   selectedSecondMetric,
   timePeriod,
   compareToPrevious,
+  metrics,
+  secondMetrics,
   onMetricChange,
   onSecondMetricChange,
   onTimePeriodChange,
@@ -40,13 +42,13 @@ export default function ChartControls({
   }));
 
   // Menu items for the first metric dropdown
-  const metricMenuItems: MenuProps["items"] = AGENT_ACTIVITY_METRICS.map((metric) => ({
+  const metricMenuItems: MenuProps["items"] = metrics.map((metric) => ({
     key: metric.name,
     label: metric.name,
   }));
 
   // Menu items for the second metric dropdown
-  const secondMetricMenuItems: MenuProps["items"] = AGENT_ACTIVITY_SECOND_METRICS.map((metric) => ({
+  const secondMetricMenuItems: MenuProps["items"] = secondMetrics.map((metric) => ({
     key: metric.name,
     label: metric.name,
   }));
