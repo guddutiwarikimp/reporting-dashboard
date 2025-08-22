@@ -12,6 +12,8 @@ import {
 } from "@/components/reporting";
 import { useAgentActivity, useChartState } from "@/hooks";
 import { useTheme } from "@/hooks/useTheme";
+import { AGENT_ACTIVITY_QUERIES } from "@/constants/reporting";
+import { AGENT_ACTIVITY_METRICS, AGENT_ACTIVITY_SECOND_METRICS } from "@/constants/agentActivity";
 
 export default function AgentActivityPage() {
   const {
@@ -40,6 +42,7 @@ export default function AgentActivityPage() {
         <QuerySelector
           selectedQuery={selectedQuery}
           onQueryChange={handleQueryChange}
+          queries={AGENT_ACTIVITY_QUERIES}
         />
         <RefreshSection
           isRefreshing={isRefreshing}
@@ -55,6 +58,8 @@ export default function AgentActivityPage() {
           selectedSecondMetric={selectedSecondMetric}
           timePeriod={timePeriod}
           compareToPrevious={compareToPrevious}
+          metrics={AGENT_ACTIVITY_METRICS}
+          secondMetrics={AGENT_ACTIVITY_SECOND_METRICS}
           onMetricChange={setSelectedMetric}
           onSecondMetricChange={setSelectedSecondMetric}
           onTimePeriodChange={setTimePeriod}

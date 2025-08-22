@@ -1,18 +1,18 @@
 import { Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { AGENT_ACTIVITY_QUERIES } from "@/constants/reporting";
 
 interface QuerySelectorProps {
   selectedQuery: string;
   onQueryChange: (query: string) => void;
+  queries: readonly string[];
 }
 
-export function QuerySelector({ selectedQuery, onQueryChange }: QuerySelectorProps) {
+export function QuerySelector({ selectedQuery, onQueryChange, queries }: QuerySelectorProps) {
   const handleMenuClick = ({ key }: { key: string }) => {
     onQueryChange(key);
   };
 
-  const menuItems = AGENT_ACTIVITY_QUERIES.map((option) => ({
+  const menuItems = queries.map((option) => ({
     key: option,
     label: option,
   }));

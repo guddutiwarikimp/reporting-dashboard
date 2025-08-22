@@ -6,3 +6,6 @@ export { default as ChartControls } from './ChartControls';
 export { default as AgentActivityChart } from './AgentActivityChart';
 export { default as MetricCards } from './MetricCards';
 export { default as AgentTable } from './AgentTable';
+export { default as LeadSourceChart } from './LeadSourceChart';
+export { default as LeadSourceMetricCards } from './LeadSourceMetricCards';
+export { default as LeadSourceTable } from './LeadSourceTable';
