@@ -78,7 +78,7 @@ export const LEAD_SOURCE_SECOND_METRICS = [
   },
 ] as const;
 
-export const METRIC_BASE_VALUES: Record<string, number> = {
+export const LEAD_SOURCE_METRIC_BASE_VALUES: Record<string, number> = {
   "New Leads": 1250,
   "Nothing": 0,
   "Calls": 890,
@@ -89,7 +89,7 @@ export const METRIC_BASE_VALUES: Record<string, number> = {
   "Appointments": 78,
 };
 
-export const CHART_COLORS = {
+export const LEAD_SOURCE_CHART_COLORS = {
   primary: "#3b82f6",
   secondary: "#10b981",
   accent: "#8b5cf6",
@@ -195,7 +195,7 @@ export const QUERY_LEAD_SOURCE_TABLE_DATA = {
   },
 };
 
-export const getMetricTooltip = (metricName: string): string => {
+export const getLeadSourceMetricTooltip = (metricName: string): string => {
   // Handle the specific column names used in the table
   const tooltips: Record<string, string> = {
     "Name": "Lead source name",
@@ -211,21 +211,21 @@ export const getMetricTooltip = (metricName: string): string => {
 };
 
 // Time periods for lead source reporting
-export const TIME_PERIODS = [
+export const LEAD_SOURCE_TIME_PERIODS = [
   "daily",
   "weekly", 
   "monthly",
   "yearly",
 ] as const;
 
-export const TIME_PERIOD_LABELS: Record<string, string> = {
+export const LEAD_SOURCE_TIME_PERIOD_LABELS: Record<string, string> = {
   daily: "Daily",
   weekly: "Weekly",
   monthly: "Monthly",
   yearly: "Yearly",
 } as const;
 
-export const COMPARISON_PERIOD_LABELS: Record<string, string> = {
+export const LEAD_SOURCE_COMPARISON_PERIOD_LABELS: Record<string, string> = {
   daily: "Previous 8 months (May 2024 - Dec 2024)",
   weekly: "Previous 35 weeks (May 2024 - Dec 2024)",
   monthly: "Previous 8 months (May 2024 - Dec 2024)",

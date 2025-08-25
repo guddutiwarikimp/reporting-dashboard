@@ -5,7 +5,7 @@ import * as echarts from "echarts";
 import EChartsComponent from "@/components/charts/EChartsComponent";
 import type { Theme } from "@/types/chart";
 import { QuestionCircleOutlined } from "@ant-design/icons";
-import { LEAD_SOURCE_METRICS, METRIC_BASE_VALUES, getMetricTooltip, CHART_COLORS } from "../../constants/leadSources";
+import { LEAD_SOURCE_METRICS, LEAD_SOURCE_METRIC_BASE_VALUES, getLeadSourceMetricTooltip, LEAD_SOURCE_CHART_COLORS } from "../../constants/leadSources";
 
 interface MetricCardProps {
   title: string;
@@ -152,8 +152,8 @@ export default function LeadSourceMetricCards({ theme, timePeriod, onMetricSelec
   // Generate metric cards for ALL LEAD_SOURCE_METRICS
   const metrics = LEAD_SOURCE_METRICS.map(metric => {
     const metricName = metric.name;
-    const baseValue = METRIC_BASE_VALUES[metricName] || 0;
-    const tooltip = metric.tooltip;
+    const baseValue = LEAD_SOURCE_METRIC_BASE_VALUES[metricName] || 0;
+    const tooltip = getLeadSourceMetricTooltip(metricName);
     
     // Determine trend based on metric type and value
     let trend: "up" | "down" | "flat" | "spike" = "flat";
@@ -163,14 +163,14 @@ export default function LeadSourceMetricCards({ theme, timePeriod, onMetricSelec
     else if (metricName.includes("Appointments")) trend = "up";
     
     // Determine color based on metric type
-    let color: string = CHART_COLORS.primary;
-    if (metricName.includes("Leads")) color = CHART_COLORS.primary;
-    else if (metricName.includes("Calls")) color = CHART_COLORS.success;
-    else if (metricName.includes("Emails")) color = CHART_COLORS.secondary;
-    else if (metricName.includes("Texts")) color = CHART_COLORS.accent;
-    else if (metricName.includes("Notes")) color = CHART_COLORS.info;
-    else if (metricName.includes("Tasks")) color = CHART_COLORS.warning;
-    else if (metricName.includes("Appointments")) color = CHART_COLORS.accent;
+    let color: string = LEAD_SOURCE_CHART_COLORS.primary;
+    if (metricName.includes("Leads")) color = LEAD_SOURCE_CHART_COLORS.primary;
+    else if (metricName.includes("Calls")) color = LEAD_SOURCE_CHART_COLORS.success;
+    else if (metricName.includes("Emails")) color = LEAD_SOURCE_CHART_COLORS.secondary;
+    else if (metricName.includes("Texts")) color = LEAD_SOURCE_CHART_COLORS.accent;
+    else if (metricName.includes("Notes")) color = LEAD_SOURCE_CHART_COLORS.info;
+    else if (metricName.includes("Tasks")) color = LEAD_SOURCE_CHART_COLORS.warning;
+    else if (metricName.includes("Appointments")) color = LEAD_SOURCE_CHART_COLORS.accent;
     else color = "#6b7280"; // Gray for other metrics
     
     return {

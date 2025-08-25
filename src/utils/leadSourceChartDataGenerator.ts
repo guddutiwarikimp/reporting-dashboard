@@ -1,4 +1,4 @@
-import { METRIC_BASE_VALUES } from "../constants/leadSources";
+import { LEAD_SOURCE_METRIC_BASE_VALUES } from "../constants/leadSources";
 import { LEAD_SOURCE_QUERIES } from "@/constants/leadSources";
 
 // Constants for lead source data generation
@@ -171,7 +171,7 @@ export const getBaseValueForMetric = (metric: string): number => {
     "Appointments": 78,
   };
   
-  return metricBaseValues[metric] || METRIC_BASE_VALUES[metric] || 100;
+  return metricBaseValues[metric] || LEAD_SOURCE_METRIC_BASE_VALUES[metric] || 100;
 };
 
 // Generate data for different time periods

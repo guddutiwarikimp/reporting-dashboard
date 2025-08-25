@@ -3,7 +3,7 @@
 import React from "react";
 import { Table, Avatar, Tooltip } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { QUERY_LEAD_SOURCE_TABLE_DATA, getMetricTooltip } from "../../constants/leadSources";
+import { QUERY_LEAD_SOURCE_TABLE_DATA, getLeadSourceMetricTooltip } from "../../constants/leadSources";
 
 interface LeadSourceTableProps {
   selectedQuery: string;
@@ -76,7 +76,7 @@ export default function LeadSourceTable({ selectedQuery, theme }: LeadSourceTabl
 
     // Add dynamic columns based on the selected query
     tableData.columns.slice(1).forEach((columnName) => {
-      const description = getMetricTooltip(columnName);
+      const description = getLeadSourceMetricTooltip(columnName);
       
       // Special handling for Actions column
       if (columnName === "Actions") {

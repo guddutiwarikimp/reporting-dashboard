@@ -225,6 +225,7 @@ const generateTitleConfig = (selectedQuery?: string, compareToPrevious?: boolean
   return {
     text: titleText,
     left: "center" as const,
+    top: "5%" as const,
     textStyle: {
       color: theme === "dark" ? "#ffffff" : "#374151",
       fontSize: 16,
@@ -235,6 +236,7 @@ const generateTitleConfig = (selectedQuery?: string, compareToPrevious?: boolean
       color: theme === "dark" ? "#9ca3af" : "#6b7280",
       fontSize: 12,
     },
+    itemGap: 8,
   };
 };
 
@@ -432,6 +434,6 @@ const generateGridConfig = () => ({
   left: "3%",
   right: "4%",
   bottom: "15%",
-  top: "15%",
+  top: "25%",
   containLabel: true,
 });
