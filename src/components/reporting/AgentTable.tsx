@@ -18,47 +18,47 @@ interface AgentData {
 
 export default function AgentTable({ selectedQuery, theme }: AgentTableProps) {
   // Get table data for the selected query
-  const tableData = QUERY_AGENT_TABLE_DATA[selectedQuery as keyof typeof QUERY_AGENT_TABLE_DATA] || 
-                   QUERY_AGENT_TABLE_DATA["what team member is getting the most leads to respond"];
+  const tableData = QUERY_AGENT_TABLE_DATA[selectedQuery as keyof typeof QUERY_AGENT_TABLE_DATA] ||
+    QUERY_AGENT_TABLE_DATA["what team member is getting the most leads to respond"];
 
-   // Sort agents by performance (top performer first)
+  // Sort agents by performance (top performer first)
   const sortedAgents = [...tableData.agents].sort((a, b) => {
     // Get the first metric column (excluding Name column)
     const firstMetricColumn = tableData.columns[1];
     if (firstMetricColumn) {
       const aValue = a[firstMetricColumn];
       const bValue = b[firstMetricColumn];
-      
+
       // Handle null/undefined values
       if (aValue == null && bValue == null) return 0;
       if (aValue == null) return 1;
       if (bValue == null) return -1;
-      
+
       // Sort numerically (higher values first for top performance)
       if (typeof aValue === 'number' && typeof bValue === 'number') {
         return bValue - aValue; // Descending order (top performer first)
       }
-      
+
       // Fallback to string comparison
       return String(bValue).localeCompare(String(aValue));
     }
     return 0;
   });
-  
+
   // Generate columns dynamically based on the selected query
   const generateColumns = (): ColumnsType<AgentData> => {
     const columns: ColumnsType<AgentData> = [
       {
         title: "Name",
         dataIndex: "name",
-        key: "name",   
+        key: "name",
         width: 200,
         fixed: "left",
         render: (name: string, record: AgentData) => (
           <div className="flex items-center gap-3">
-            <Avatar 
+            <Avatar
               size={40}
-              style={{ 
+              style={{
                 backgroundColor: getInitialsColor(record.initials),
                 color: '#fff',
                 fontWeight: 'bold',
@@ -78,7 +78,7 @@ export default function AgentTable({ selectedQuery, theme }: AgentTableProps) {
     // Add dynamic columns based on the selected query
     tableData.columns.slice(1).forEach((columnName) => {
       const description = getMetricTooltip(columnName);
-      
+
       columns.push({
         title: (
           <Tooltip title={description} placement="top">
@@ -93,7 +93,7 @@ export default function AgentTable({ selectedQuery, theme }: AgentTableProps) {
           if (value === null || value === undefined) {
             return <span className="text-gray-400">-</span>;
           }
-          
+
           // Format values consistently - all numerical data in gray
           if (typeof value === 'number') {
             if (columnName.includes("%")) {
@@ -132,7 +132,7 @@ export default function AgentTable({ selectedQuery, theme }: AgentTableProps) {
   // Generate color for initials avatar
   const getInitialsColor = (initials: string): string => {
     const colors = [
-      '#f97316', '#10b981', '#8b5cf6', '#ef4444', 
+      '#f97316', '#10b981', '#8b5cf6', '#ef4444',
       '#06b6d4', '#f59e0b', '#84cc16', '#3b82f6'
     ];
     const index = initials.charCodeAt(0) % colors.length;
@@ -151,7 +151,7 @@ export default function AgentTable({ selectedQuery, theme }: AgentTableProps) {
           Detailed performance metrics for each team member
         </p>
       </div>
-      
+
       <div className="overflow-x-auto">
         <Table
           columns={columns}
