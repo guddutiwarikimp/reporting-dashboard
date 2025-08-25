@@ -73,7 +73,7 @@ export default function TextsPage() {
         <ReportingLayout>
             <div className="flex items-center justify-between mb-6">
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Texts Report</h1>
-                <Dropdown menu={{ items }} placement="bottomCenter" className="">
+                <Dropdown menu={{ items }} className="">
                     <Button className=" !font-medium flex items-center gap-1">All Time <DownOutlined /></Button>
                 </Dropdown>
             </div>
