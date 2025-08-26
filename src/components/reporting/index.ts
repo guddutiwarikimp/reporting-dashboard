@@ -11,3 +11,5 @@ export { default as CallsAgentTable } from './CallsAgentTable';
 export { default as LeadSourceChart } from './LeadSourceChart';
 export { default as LeadSourceMetricCards } from './LeadSourceMetricCards';
 export { default as LeadSourceTable } from './LeadSourceTable';
+// export { default as TextStats } from './TextStats';
+export { default as TextTable } from './TextTable';

@@ -26,6 +26,13 @@ const LeadListItem = ({
 }) => {
     const [sliderValue, setSliderValue] = useState(score);
 
+    const statsData = [
+        { value: 0, icon: <CalendarOutlined className="!text-cyan-400" /> },
+        { value: <><span>76</span> <span className="text-gray-500">(14 hrs 2m)</span></>, icon: <PhoneOutlined className="!text-green-500" /> },
+        { value: 52, icon: <PhoneOutlined className="!text-orange-400" /> },
+        { value: 10, icon: <MailOutlined className="!text-blue-400" /> },
+    ];
+
     useEffect(() => {
         const slider = document.querySelector(`#slider-${rank} .ant-slider-handle`);
         if (slider) {
@@ -36,7 +43,6 @@ const LeadListItem = ({
             slider?.appendChild(span);
         }
     }, [rank, sliderValue]);
-
 
     return (
         <Card className="!p-0 !mb-3 shadow [&_.ant-card-body]:sm:!p-5 [&_.ant-card-body]:!p-3">
@@ -71,10 +77,9 @@ const LeadListItem = ({
                     </div>
 
                     <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
-                        <StatsBadge value={0} icon={<CalendarOutlined className="!text-cyan-400" />} />
-                        <StatsBadge value={<><span>76</span> <span className="text-gray-500">(14 hrs 2m)</span></>} icon={<PhoneOutlined className="!text-green-500" />} />
-                        <StatsBadge value={52} icon={<PhoneOutlined className="!text-orange-400" />} />
-                        <StatsBadge value={10} icon={<MailOutlined className="!text-blue-400" />} />
+                        {statsData.map((item, idx) => (
+                            <StatsBadge key={idx} value={item.value} icon={item.icon} />
+                        ))}
                     </div>
                 </div>
             </div>
