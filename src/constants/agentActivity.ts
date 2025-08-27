@@ -1,13 +1,3 @@
-// Agent Activity Query Types
-export const AGENT_ACTIVITY_QUERIES = [
-  "what team member is getting the most leads to respond",
-  "How quickly we follow up on leads",
-  "How many times we try to contact each lead",
-  "which team member has the best response time",
-  "Total lead count and total agent activity",
-  "How many leads have we not acted on",
-] as const;
-
 // Base metrics for different query types with tooltips
 export const AGENT_ACTIVITY_METRICS = [
   {
@@ -130,10 +120,10 @@ export const COMPARISON_PERIOD_LABELS = {
 export const getMetricTooltip = (metricName: string): string => {
   const metric = AGENT_ACTIVITY_METRICS.find(m => m.name === metricName);
   if (metric) return metric.tooltip;
-  
+
   const secondMetric = AGENT_ACTIVITY_SECOND_METRICS.find(m => m.name === metricName);
   if (secondMetric) return secondMetric.tooltip;
-  
+
   // Additional metrics not in the main arrays
   const additionalTooltips: { [key: string]: string } = {
     "% of Leads Responding": "Percentage of leads who responded to any form of contact",
@@ -157,7 +147,7 @@ export const getMetricTooltip = (metricName: string): string => {
     "Deal Commission": "Total commission earned from closed deals",
     "Conversion Rate": "Percentage of leads converted to deals",
   };
-  
+
   return additionalTooltips[metricName] || `Data for ${metricName}`;
 };
 
