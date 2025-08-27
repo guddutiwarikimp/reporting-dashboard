@@ -13,3 +13,5 @@ export { default as LeadSourceMetricCards } from './LeadSourceMetricCards';
 export { default as LeadSourceTable } from './LeadSourceTable';
 export { default as BatchEmailsTable } from './BatchEmailsTable';
 export { default as RecipientsTable } from './RecipientsTable';
+// export { default as TextStats } from './TextStats';
+export { default as TextTable } from './TextTable';
