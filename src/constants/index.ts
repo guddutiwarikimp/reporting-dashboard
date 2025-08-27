@@ -4,3 +4,4 @@ export * from "./leadSources";
 export * from "./calls";
 export * from "./agentActivity";
 export * from "./appointments";
+export * from "./agentGoals";

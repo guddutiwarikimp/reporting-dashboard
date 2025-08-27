@@ -97,7 +97,6 @@ const AppointmentTable = () => {
 
     return (
         <Table
-
             dataSource={dataSource}
             columns={columns}
             pagination={false}
