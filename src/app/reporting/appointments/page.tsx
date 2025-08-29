@@ -11,7 +11,7 @@ const page = () => {
 
     return (
         <ReportingLayout>
-            <div className="flex items-center flex-wrap gap-2 sm:justify-between justify-center mb-6 ">
+            <div className="flex items-center flex-col sm:flex-row gap-2 sm:justify-between justify-center mb-6 ">
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Appointments Report</h1>
                 <div className="flex items-center gap-2">
                     <Button type="primary" icon={<PlusOutlined />}>Add Appointment</Button>

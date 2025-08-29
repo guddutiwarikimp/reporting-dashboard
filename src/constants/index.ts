@@ -5,3 +5,4 @@ export * from "./calls";
 export * from "./batchEmails";
 export * from "./agentActivity";
 export * from "./appointments";
+export * from "./agentGoals";
