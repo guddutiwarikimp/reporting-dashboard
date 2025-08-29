@@ -6,3 +6,6 @@ export * from "./batchEmails";
 export * from "./agentActivity";
 export * from "./appointments";
 export * from "./agentGoals";
+export * from "./deals";
+export * from "./leaderboard";
+export * from "./texts";

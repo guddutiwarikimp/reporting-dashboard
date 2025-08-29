@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Table, Avatar, Tooltip } from "antd";
+import { Table, Avatar, Tooltip, Button } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 import type { ColumnsType } from "antd/es/table";
 import { QUERY_LEAD_SOURCE_TABLE_DATA, getLeadSourceMetricTooltip } from "../../constants/leadSources";
 
@@ -85,11 +86,17 @@ export default function LeadSourceTable({ selectedQuery, theme }: LeadSourceTabl
           dataIndex: columnName,
           key: columnName,
           width: 120,
-          align: "left" as const,
-          render: (value: string) => (
-            <span className="font-medium text-gray-700 dark:text-gray-300">
-              {value}
-            </span>
+          align: "center" as const,
+          render: (value: string, record: LeadSourceData) => (
+            <Tooltip title="Remove lead source" placement="top">
+              <Button
+                type="text"
+                icon={<DeleteOutlined />}
+                size="small"
+                className="text-red-500 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors duration-200"
+                onClick={() => handleDeleteLeadSource(record.name)}
+              />
+            </Tooltip>
           ),
         });
         return;
@@ -153,6 +160,16 @@ export default function LeadSourceTable({ selectedQuery, theme }: LeadSourceTabl
     ];
     const index = initial.charCodeAt(0) % colors.length;
     return colors[index];
+  };
+
+  // Handle delete lead source
+  const handleDeleteLeadSource = (leadSourceName: string) => {
+    // TODO: Implement delete functionality
+    console.log(`Deleting lead source: ${leadSourceName}`);
+    // You can add your delete logic here, such as:
+    // - API call to delete the lead source
+    // - State update to remove from the table
+    // - Confirmation dialog
   };
 
   const columns = generateColumns();

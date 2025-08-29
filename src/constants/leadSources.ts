@@ -16,11 +16,7 @@ export const LEAD_SOURCE_CONFIG = {
   neverRefreshedText: "Never",
 } as const;
 
-export const LEAD_SOURCE_METRICS = [
-  {
-    name: "New Leads",
-    tooltip: "Total number of new leads generated from this source",
-  },
+const BASE_LEAD_SOURCE_METRICS = [
   {
     name: "Calls",
     tooltip: "Number of calls made to leads from this source",
@@ -47,35 +43,20 @@ export const LEAD_SOURCE_METRICS = [
   },
 ] as const;
 
+export const LEAD_SOURCE_METRICS = [
+  {
+    name: "New Leads",
+    tooltip: "Total number of new leads generated from this source",
+  },
+  ...BASE_LEAD_SOURCE_METRICS
+] as const;
+
 export const LEAD_SOURCE_SECOND_METRICS = [
   {
     name: "Nothing",
     tooltip: "No activity recorded for leads from this source",
   },
-  {
-    name: "Calls",
-    tooltip: "Number of calls made to leads from this source",
-  },
-  {
-    name: "Emails",
-    tooltip: "Number of emails sent to leads from this source",
-  },
-  {
-    name: "Texts",
-    tooltip: "Number of text messages sent to leads from this source",
-  },
-  {
-    name: "Notes",
-    tooltip: "Number of notes added for leads from this source",
-  },
-  {
-    name: "Tasks Completed",
-    tooltip: "Number of tasks completed for leads from this source",
-  },
-  {
-    name: "Appointments",
-    tooltip: "Number of appointments scheduled with leads from this source",
-  },
+  ...BASE_LEAD_SOURCE_METRICS
 ] as const;
 
 export const LEAD_SOURCE_METRIC_BASE_VALUES: Record<string, number> = {

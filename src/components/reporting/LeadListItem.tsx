@@ -6,7 +6,6 @@ import { CalendarOutlined, MailOutlined } from "@ant-design/icons";
 import { PhoneOutlined } from "@ant-design/icons";
 import { MessageOutlined } from "@ant-design/icons";
 import { formatNumber } from "@/utils";
-import LeadState from "./LeadState";
 import StatsBadge from "./StateBadge";
 
 const LeadListItem = ({

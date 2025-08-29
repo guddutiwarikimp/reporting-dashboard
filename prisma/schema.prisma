@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model EmailTemplateLog {
+  id          String   @id @default(uuid())
+  email       String
+  subject     String
+  templateId  String?
+  status      String   @default("sent") // sent, delivered, opened, clicked, bounced, failed, etc.
+  sentAt      DateTime @default(now())
+  deliveredAt DateTime?
+  openedAt    DateTime?
+  clickedAt   DateTime?
+  repliedAt   DateTime?
+  bouncedAt   DateTime?
+  failedAt    DateTime?
+  errorMessage String?
+  metadata    Json?    @default("{}")
+  orgId       Int?
+  createdBy   Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([orgId])
+  @@index([templateId])
+  @@index([createdAt])
+}

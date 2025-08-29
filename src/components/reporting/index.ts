@@ -13,5 +13,12 @@ export { default as LeadSourceMetricCards } from './LeadSourceMetricCards';
 export { default as LeadSourceTable } from './LeadSourceTable';
 export { default as BatchEmailsTable } from './BatchEmailsTable';
 export { default as RecipientsTable } from './RecipientsTable';
-// export { default as TextStats } from './TextStats';
+export { default as TextStats } from './TextStats';
 export { default as TextTable } from './TextTable';
+export { default as DealsFilter } from './DealsFilter';
+export { default as DealsTable } from './DealsTable';
+export { default as DealsPipeline } from './DealsPipeline';
+export { default as DealsSummaryStats } from './DealsSummaryStats';
+export { default as DealsChart } from './DealsChart';
+export { default as DealsChartControls } from './DealsChartControls';
+

@@ -1,5 +1,5 @@
 // Base metrics for different query types with tooltips
-export const AGENT_ACTIVITY_METRICS = [
+const BASE_METRICS = [
   {
     name: "New Leads",
     tooltip: "Total number of new leads created during the selected time frame"
@@ -42,47 +42,14 @@ export const AGENT_ACTIVITY_METRICS = [
   },
 ] as const;
 
+export const AGENT_ACTIVITY_METRICS = BASE_METRICS;
+
 export const AGENT_ACTIVITY_SECOND_METRICS = [
   {
     name: "Nothing",
     tooltip: "No additional metric"
   },
-  {
-    name: "Initially Assigned Leads",
-    tooltip: "Leads created during the selected time frame and were initially assigned to everyone"
-  },
-  {
-    name: "Currently Assigned Leads",
-    tooltip: "Leads that are currently assigned to team members and actively being worked on"
-  },
-  {
-    name: "Calls",
-    tooltip: "Total number of phone calls made to leads during the selected time frame"
-  },
-  {
-    name: "Emails",
-    tooltip: "Total number of emails sent to leads during the selected time frame"
-  },
-  {
-    name: "Texts",
-    tooltip: "Total number of text messages sent to leads during the selected time frame"
-  },
-  {
-    name: "Notes",
-    tooltip: "Total number of notes added to lead records during the selected time frame"
-  },
-  {
-    name: "Tasks Completed",
-    tooltip: "Total number of tasks completed related to lead management"
-  },
-  {
-    name: "Appointments Set",
-    tooltip: "Total number of appointments scheduled with leads"
-  },
-  {
-    name: "Appointments",
-    tooltip: "Total number of appointments that actually occurred"
-  },
+  ...BASE_METRICS
 ] as const;
 
 // Time periods
